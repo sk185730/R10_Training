@@ -20,66 +20,74 @@ namespace ShoppingApplication
             while (applicationRunningState)
             {
                 UserApp.DisplayOperationOptions();
-                string option = Console.ReadLine();
-                switch (option)
+
+                try
                 {
-                    case "1":
-                        shoppingCartHelper.DisplayAllProducts();
-                        break;
+                    string option = Console.ReadLine();
+                    switch (option)
+                    {
+                        case "1":
+                            shoppingCartHelper.DisplayAllProducts();
+                            break;
 
-                    case "2":
-                        Console.Write("Enter product name: ");
-                        productOption = Console.ReadLine();
-                        if (userApp.ProductNameValidation(productOption)) 
-                            shoppingCartHelper.DisplayProductDetails(productOption);
-                        break;
+                        case "2":
+                            Console.Write("Enter product name: ");
+                            productOption = Console.ReadLine();
+                            if (userApp.ProductNameValidation(productOption)) 
+                                shoppingCartHelper.DisplayProductDetails(productOption);
+                            break;
 
-                    case "3":
-                        Console.Write("Enter product name to add to cart: ");
-                        productOption = Console.ReadLine();
-                        if (userApp.ProductNameValidation(productOption))
-                            shoppingCartHelper.AddProductToCart(productOption);
-                        break;
-
-                    case "4":
-                        if (shoppingCartHelper.shoppingCart.Count != 0)
-                        {
-                            Console.Write("Enter product name to remove from cart: ");
+                        case "3":
+                            Console.Write("Enter product name to add to cart: ");
                             productOption = Console.ReadLine();
                             if (userApp.ProductNameValidation(productOption))
-                                shoppingCartHelper.RemoveProductFromCart(productOption);
-                        }
-                        else
-                            Console.WriteLine("Cart is empty!");
-                        break;
+                                shoppingCartHelper.AddProductToCart(productOption);
+                                break;
 
-                    case "5":
-                        if (shoppingCartHelper.shoppingCart.Count != 0)
-                            shoppingCartHelper.DisplayProductsInCart();
-                        else
-                            Console.WriteLine("Cart is empty!");
-                        break;
+                        case "4":
+                            if (shoppingCartHelper.shoppingCart.Count != 0)
+                            {
+                                Console.Write("Enter product name to remove from cart: ");
+                                productOption = Console.ReadLine();
+                                if (userApp.ProductNameValidation(productOption))
+                                    shoppingCartHelper.RemoveProductFromCart(productOption);
+                            }
+                            else
+                                Console.WriteLine("Cart is empty!");
+                            break;
 
-                    case "6":
-                        if (shoppingCartHelper.shoppingCart.Count != 0)
-                            shoppingCartHelper.SortProductsInCartBasedOnPrice();
-                        else
-                            Console.WriteLine("Cart is empty!");
-                        break;
+                        case "5":
+                            if (shoppingCartHelper.shoppingCart.Count != 0)
+                                shoppingCartHelper.DisplayProductsInCart();
+                            else
+                                Console.WriteLine("Cart is empty!");
+                                break;
 
-                    case "7":
-                        shoppingCartHelper.DisplayTotalPrice();
-                        break;
+                        case "6":
+                            if (shoppingCartHelper.shoppingCart.Count != 0)
+                                shoppingCartHelper.SortProductsInCartBasedOnPrice();
+                            else
+                                Console.WriteLine("Cart is empty!");
+                            break;
 
-                    case "8":
-                        applicationRunningState = false;
-                        Console.WriteLine("Bye!");
-                        break;
+                        case "7":
+                            shoppingCartHelper.DisplayTotalPrice();
+                            break;
 
-                    default: 
-                        Console.WriteLine("Enter a valid option!");
-                        break;
-                }     
+                        case "8":
+                            applicationRunningState = false;
+                            Console.WriteLine("Bye!");
+                            break;
+
+                        default:
+                            throw new InvalidOptionException("Please enter a valid option!");
+                    }
+                }
+                catch (InvalidOptionException ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                
             }
         }
 
@@ -107,6 +115,14 @@ namespace ShoppingApplication
                 Console.WriteLine("Enter a valid product name!");
                 return false;
             }
+        }
+    }
+
+    public class InvalidOptionException : Exception
+    {
+        public InvalidOptionException(String message) : base(message)
+        {
+
         }
     }
 }
