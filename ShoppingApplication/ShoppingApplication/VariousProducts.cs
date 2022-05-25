@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace ShoppingApplication
 {
+
+    /// <summary>
+    /// All products in the store along with their details are defined in this class
+    /// </summary>
     class VariousProducts
     {
         public List<Product> product;

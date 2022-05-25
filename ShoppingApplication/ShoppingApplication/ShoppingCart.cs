@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 
 namespace ShoppingApplication
 {
-    class ShoppingCart
+
+    /// <summary>
+    /// Provides implementation to ICart methods
+    /// </summary>
+    class ShoppingCart : ICart, IStore
     {
         VariousProducts variousProducts = new VariousProducts();
         public List<Product> shoppingCart = new List<Product>();
         Product particularProduct;
 
-        #region 1
+        #region Option 1 of UserApp switchcase
+
+        /// <summary>
+        /// Displays the list of all the products
+        /// </summary>
         public void DisplayAllProducts()
         {
             Console.WriteLine("PRODUCTS:");
@@ -23,7 +31,11 @@ namespace ShoppingApplication
         }
         #endregion
 
-        #region 2
+        #region Option 2 of UserApp switchcase
+        /// <summary>
+        /// Displays details of a specific product 
+        /// </summary>
+        /// <param name="product"></param>
         public void DisplayProductDetails(string product)
         {
             particularProduct = variousProducts.product.Find(x => x.ProductName.ToUpper() == product.ToString().ToUpper());
@@ -31,25 +43,62 @@ namespace ShoppingApplication
         }
         #endregion
 
-        #region 3
-        public void AddProductToCart(string product)
+        #region Option 3 of UserApp switchcase
+        /// <summary>
+        /// Adds a product to cart based on its name
+        /// </summary>
+        /// <param name="productName"></param>
+        public void AddProductToCart(string productName)
         {
-            particularProduct = variousProducts.product.Find(x => x.ProductName.ToUpper() == product.ToString().ToUpper());
+            particularProduct = variousProducts.product.Find(x => x.ProductName.ToUpper() == productName.ToString().ToUpper());
             shoppingCart.Add(particularProduct);
             Console.WriteLine($"{particularProduct.ProductName} added to cart!");
         }
         #endregion
 
-        #region 4
-        public void RemoveProductFromCart(string product)
+        #region Option 4 of UserApp switchcase
+        /// <summary>
+        /// Adds a product to cart based on its id
+        /// </summary>
+        /// <param name="productId"></param>
+        public void AddProductToCart(int productId)
         {
-            particularProduct = variousProducts.product.Find(x => x.ProductName.ToUpper() == product.ToString().ToUpper());
+            particularProduct = variousProducts.product.Find(x => x.ProductId == productId);
+            shoppingCart.Add(particularProduct);
+            Console.WriteLine($"Product no. {productId} added to cart!");
+        }
+        #endregion
+
+        #region Option 5 of UserApp switchcase
+        /// <summary>
+        /// Removes a product from cart based on its name
+        /// </summary>
+        /// <param name="productName"></param>
+        public void RemoveProductFromCart(string productName)
+        {
+            particularProduct = variousProducts.product.Find(x => x.ProductName.ToUpper() == productName.ToString().ToUpper());
             shoppingCart.Remove(particularProduct);
             Console.WriteLine($"{particularProduct.ProductName} removed from cart!");
         }
         #endregion
 
-        #region 5
+        #region Option 6 of UserApp switchcase
+        /// <summary>
+        /// Removes a product from cart based on its id
+        /// </summary>
+        /// <param name="productId"></param>
+        public void RemoveProductFromCart(int productId)
+        {
+            particularProduct = variousProducts.product.Find(x => x.ProductId == productId);
+            shoppingCart.Remove(particularProduct);
+            Console.WriteLine($"Product no. {productId} removed from cart!");
+        }
+        #endregion
+
+        #region Option 7 of UserApp switchcase
+        /// <summary>
+        /// Displays all the products in cart
+        /// </summary>
         public void DisplayProductsInCart()
         {
             Console.WriteLine("PRODUCTS IN CART: ");
@@ -60,7 +109,10 @@ namespace ShoppingApplication
         }
         #endregion
 
-        #region 6
+        #region Option 8 of UserApp switchcase
+        /// <summary>
+        /// Sorts products in cart based on their price
+        /// </summary>
         public void SortProductsInCartBasedOnPrice()
         {
             Console.WriteLine("SORTED PRODUCTS BASED ON PRICE:  ");
@@ -72,7 +124,10 @@ namespace ShoppingApplication
         }
         #endregion
 
-        #region 7
+        #region Option 9 of UserApp switchcase
+        /// <summary>
+        /// Displays the total price of products in cart
+        /// </summary>
         public void DisplayTotalPrice()
         {
             decimal totalPrice = 0;

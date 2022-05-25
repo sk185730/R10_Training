@@ -4,6 +4,9 @@ namespace ShoppingApplication
 {
     public class Product
     {
+        /// <summary>
+        /// Product data memebers and their properties (setters and getters)
+        /// </summary>
         private string _productName;
         private int _productId;
         private decimal _productPrice;
