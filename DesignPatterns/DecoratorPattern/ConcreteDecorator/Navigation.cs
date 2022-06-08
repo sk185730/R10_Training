@@ -10,6 +10,7 @@ namespace DecoratorPattern.ConcreteDecorator
 {
     class Navigation : CarDecorator
     {
+
         public Navigation(Car car) : base(car)
         {
             Description = "Navigation";

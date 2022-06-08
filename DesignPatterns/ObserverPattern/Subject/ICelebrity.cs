@@ -9,6 +9,7 @@ namespace ObserverPattern.Subject
 {
     interface ICelebrity
     {
+
         string FullName { get; }
         string Tweet { get; set; }
         void Notify(string tweet);

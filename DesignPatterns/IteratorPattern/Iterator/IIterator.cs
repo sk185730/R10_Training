@@ -8,6 +8,7 @@ namespace IteratorPattern.Iterator
 {
     interface IIterator
     {
+
         public void First(); //sets current index to first index
         public string Next(); //Advances current to next element
         public bool IsDone(); //Checks if end of collection is reached

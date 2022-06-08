@@ -10,6 +10,7 @@ namespace DecoratorPattern.ConcreteDecorator
 {
     class LeatherSeats : CarDecorator
     {
+
         public LeatherSeats(Car car) : base(car)
         {
             Description = "Leather seats";

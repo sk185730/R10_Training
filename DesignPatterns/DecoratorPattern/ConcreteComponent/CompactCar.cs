@@ -9,6 +9,7 @@ namespace DecoratorPattern.ConcreteComponent
 {
     class CompactCar: Car
     {
+
         public CompactCar()
         {
             Description = "Compact car";

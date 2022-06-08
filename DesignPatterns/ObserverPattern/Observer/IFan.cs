@@ -9,6 +9,7 @@ namespace ObserverPattern.Observer
 {
     interface IFan
     {
+
         void Update(ICelebrity celebrity);
     }
 }

@@ -11,6 +11,7 @@ namespace IteratorPattern.ConcreteAggregate
 {
     class LAPaper : INewspaper
     {
+
         public string[] _reporters;
         public LAPaper()
         {

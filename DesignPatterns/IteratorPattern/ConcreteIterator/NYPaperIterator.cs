@@ -9,6 +9,7 @@ namespace IteratorPattern.ConcreteIterator
 {
     class NYPaperIterator : IIterator
     {
+
         private List<string> _reporters;
         private int _currentIndex = 0;
 

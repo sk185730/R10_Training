@@ -9,9 +9,9 @@ namespace IteratorPattern.ConcreteIterator
 {
     class LAPaperIterator : IIterator
     {
+
         private string[] _reporters;
         private int _currentIndex;
-
         public LAPaperIterator(string[] reporters)
         {
             this._reporters = reporters;

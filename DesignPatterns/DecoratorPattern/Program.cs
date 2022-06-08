@@ -7,6 +7,7 @@ namespace DecoratorPattern
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             Car aCar = new CompactCar();

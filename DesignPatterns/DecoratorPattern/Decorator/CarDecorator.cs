@@ -10,6 +10,7 @@ namespace DecoratorPattern.Decorator
     //gives ability to add features 
     class CarDecorator : Car
     {
+
         protected Car _car;
         public CarDecorator(Car car)
         {

@@ -6,6 +6,7 @@ namespace ObserverPattern
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             var jazza = new Jazza();

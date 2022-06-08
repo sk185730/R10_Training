@@ -10,6 +10,7 @@ namespace DecoratorPattern.ConcreteDecorator
 {
     class Sunroof : CarDecorator
     {
+
         public Sunroof(Car car) : base(car)
         {
             Description = "Sunroof";

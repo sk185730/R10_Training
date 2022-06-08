@@ -9,6 +9,7 @@ namespace DecoratorPattern.ConcreteComponent
 {
     class FullSizeCar : Car
     {
+
         public FullSizeCar()
         {
             Description = "Full size car";

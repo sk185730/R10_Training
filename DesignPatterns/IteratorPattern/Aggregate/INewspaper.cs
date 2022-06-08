@@ -10,5 +10,6 @@ namespace IteratorPattern.Aggregate
     interface INewspaper
     {
         IIterator CreateIterator();
+
     }
 }

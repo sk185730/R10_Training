@@ -10,6 +10,7 @@ namespace ObserverPattern.ConcreteSubject
 {
     class Jazza : ICelebrity
     {
+
         private readonly List<IFan> _fans = new List<IFan>();
         private string _tweet;
 

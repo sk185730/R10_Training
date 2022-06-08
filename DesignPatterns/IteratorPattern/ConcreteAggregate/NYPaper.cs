@@ -11,6 +11,7 @@ namespace IteratorPattern.ConcreteAggregate
 {
     class NYPaper : INewspaper
     {
+
         public List<string> _reporters;
         public NYPaper()
         {

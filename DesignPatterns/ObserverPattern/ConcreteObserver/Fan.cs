@@ -10,6 +10,7 @@ namespace ObserverPattern.ConcreteObserver
 {
     class Fan : IFan
     {
+
         public void Update(ICelebrity celebrity)
         {
             Console.WriteLine($"Fan notified \n Celebrity: {celebrity.FullName} \n Tweet: {celebrity.Tweet}");
